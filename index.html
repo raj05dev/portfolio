@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raj Kumar - Front End Developer &amp; Tech Consultant</title>
+    <meta
+      name="description"
+      content="Portfolio of Raj Kumar - Front End Developer with 6.5+ years of experience in Angular, React, and TypeScript. Expert in building scalable, high-performance web applications and secure fintech integrations."
+    />
+    <meta name="author" content="Raj Kumar" />
+    <meta
+      name="keywords"
+      content="front end developer, Angular, React, TypeScript, JavaScript, RxJS, Core Web Vitals, fintech front end, e-KYC, web development, software engineer, portfolio"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.rajkumar.dev" />
+    <meta property="og:title" content="Raj Kumar - Front End Developer &amp; Tech Consultant" />
+    <meta
+      property="og:description"
+      content="Front End Developer with 6.5+ years of experience in Angular, React, and TypeScript. Expert in building scalable, high-performance web applications and secure fintech integrations."
+    />
+    <meta property="og:image" content="https://www.rajkumar.dev/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Raj Kumar — Front End Developer" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Raj Kumar - Front End Developer &amp; Tech Consultant" />
+    <meta
+      name="twitter:description"
+      content="Front End Developer with 6.5+ years of experience in Angular, React, and TypeScript. Expert in building scalable, high-performance web applications and secure fintech integrations."
+    />
+    <meta name="twitter:image" content="https://www.rajkumar.dev/og-image.jpg" />
+    <link rel="canonical" href="https://www.rajkumar.dev" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      // Apply the persisted theme before first paint to avoid a flash of the wrong theme.
+      (function () {
+        try {
+          var stored = localStorage.getItem('sky_portfolio_theme_mode');
+          var isDark =
+            stored !== null
+              ? stored === 'dark'
+              : window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (isDark) document.documentElement.classList.add('dark');
+        } catch (e) {
+          /* localStorage unavailable — fall back to light */
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

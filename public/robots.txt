@@ -1,0 +1,19 @@
+# Allow all web crawlers to access all content
+User-agent: *
+Allow: /
+
+# Disallow access to any potential admin or private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+
+# Allow Google Image crawler full access
+User-agent: Googlebot-Image
+Allow: /
+
+# Allow Google Mobile crawler full access
+User-agent: Googlebot-Mobile
+Allow: /
+
+# Specify the sitemap location
+Sitemap: https://www.rajkumar.dev/sitemap.xml
