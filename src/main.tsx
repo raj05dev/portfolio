@@ -5,6 +5,15 @@ import App from './App';
 import { ChatProvider } from '@/context/ChatContext';
 import { ThemeProvider } from '@/context/ThemeContext';
 import './index.css';
+import emailjs from '@emailjs/browser';
+import { EMAILJS_PUBLIC_KEY } from '@/lib/environment';
+
+
+emailjs.init({
+  publicKey: EMAILJS_PUBLIC_KEY,
+  limitRate: { throttle: 10000 },
+});
+
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

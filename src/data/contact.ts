@@ -18,7 +18,7 @@ export const contactDetails: ContactDetail[] = [
   {
     icon: Phone,
     label: 'Mobile',
-    value: '+91-9886401074',
+    value: '+91-7483317989',
     href: null,
   },
 ];

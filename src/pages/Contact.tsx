@@ -9,6 +9,7 @@ import type { ContactFormValues, Faq } from '@/types';
 import { toast, Toaster } from 'sonner';
 import emailjs from '@emailjs/browser';
 import { EMAILJS_PUBLIC_KEY, EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID } from '@/lib/environment';
+import { FaWhatsapp } from 'react-icons/fa';
 
 const inputClass =
   'w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-900 outline-none transition-colors focus:border-primary-500 focus:ring-2 focus:ring-primary-500 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-primary-600';
@@ -127,8 +128,11 @@ const Contact = () => {
       // setIsSubmitted(true);
       reset();
     } catch (err: any){
-      console.error(err);
-      toast.error('Failed to send message. Please try again.');
+      if(err?.status === 429){
+        toast.error('Please wait a few seconds before snding again.');
+      } else {
+        toast.error('Failed to send message. Please try again.');
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -339,6 +343,24 @@ const Contact = () => {
                   )}
                 </motion.button>
               </form>
+              <div className="mt-6 flex items-center gap-4">
+                <div className="h-px flex-1 bg-gray-200 dark:bg-gray-700" />
+                <span className="text-sm text-gray-500">or</span>
+                <div className="h-px flex-1 bg-gray-200 dark:bg-gray-700" />
+              </div>
+
+              <a
+                href={`https://wa.me/917483317989?text=${encodeURIComponent(
+                  "Hi Raj, I saw your portfolio and wanted to reach out."
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 flex w-full items-center justify-center gap-2 rounded-lg border-2 border-[#25D366] px-6 py-3 font-semibold text-[#25D366] transition-colors hover:bg-[#25D366] hover:text-white"
+              >
+                <FaWhatsapp size={20} />
+                Chat on WhatsApp
+              </a>
+
             </motion.div>
 
             {/* Details + socials */}

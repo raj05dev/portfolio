@@ -133,7 +133,7 @@ const Home = () => {
                   />
                 </Link> */}
                 <Link to="/experience" className="btn-primary group inline-flex items-center">
-                  <span>View My Experince</span>
+                  <span>View My Experience</span>
                   <ArrowRight
                     className="ml-2 transition-transform group-hover:translate-x-1"
                     size={20}
