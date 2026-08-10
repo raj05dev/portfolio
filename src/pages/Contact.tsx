@@ -6,6 +6,9 @@ import SEO from '@/components/common/SEO';
 import StructuredData from '@/components/common/StructuredData';
 import { collaborationOptions, contactDetails, contactSocials, faqs } from '@/data/contact';
 import type { ContactFormValues, Faq } from '@/types';
+import { toast, Toaster } from 'sonner';
+import emailjs from '@emailjs/browser';
+import { EMAILJS_PUBLIC_KEY, EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID } from '@/lib/environment';
 
 const inputClass =
   'w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-900 outline-none transition-colors focus:border-primary-500 focus:ring-2 focus:ring-primary-500 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-primary-600';
@@ -111,16 +114,21 @@ const Contact = () => {
     setIsSubmitting(true);
     setSubmitError(null);
     try {
-      // No backend in this replica — the submission is simulated and logged.
-      await new Promise((resolve) => setTimeout(resolve, 900));
-      console.info('Contact form submission', data);
+
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        name: data.name,
+        email: data.email,
+        message: data.message,
+        title: data.subject,
+        time: new Date().toLocaleString(),
+      }, EMAILJS_PUBLIC_KEY);
+
+      toast.success('Message Sent Successfully!');
       setIsSubmitted(true);
       reset();
-      setTimeout(() => setIsSubmitted(false), 5000);
-    } catch {
-      setSubmitError(
-        'Failed to send message. Please try again or contact me directly via email.',
-      );
+    } catch (err: any){
+      console.error(err);
+      toast.error('Failed to send message. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -133,6 +141,7 @@ const Contact = () => {
       exit={{ opacity: 0 }}
       className="pt-20"
     >
+      <Toaster position='top-center' richColors/>
       <SEO
         title="Contact | Raj Kumar"
         description="Get in touch with Raj Kumar, Front End Developer with expertise in Angular, React, and TypeScript. Available for consulting, collaboration, and project discussions."
@@ -185,7 +194,7 @@ const Contact = () => {
                 Send a Message
               </h2>
 
-              {isSubmitted && (
+              {/* {isSubmitted && (
                 <motion.div
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -201,7 +210,7 @@ const Contact = () => {
                     </p>
                   </div>
                 </motion.div>
-              )}
+              )} */}
 
               {submitError && (
                 <motion.div

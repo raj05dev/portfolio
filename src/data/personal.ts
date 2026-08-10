@@ -38,8 +38,8 @@ export const typewriterWords: string[] = [
   'Front End Developer',
   // 'Community Builder',
   // 'Tech Blogger',
-  'Angular Expert',
-  'React'
+  'Angular & React Expert',
+  // 'React'
 ];
 
 export const socialLinks: SocialLink[] = [
