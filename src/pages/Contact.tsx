@@ -1,7 +1,7 @@
 import { useLayoutEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { motion } from 'framer-motion';
-import { CheckCircle, ChevronDown, Send, X } from 'lucide-react';
+import { ChevronDown, Send, X } from 'lucide-react';
 import SEO from '@/components/common/SEO';
 import StructuredData from '@/components/common/StructuredData';
 import { collaborationOptions, contactDetails, contactSocials, faqs } from '@/data/contact';
@@ -97,7 +97,7 @@ const FaqItem = ({ faq, index, isOpen, onToggle }: FaqItemProps) => {
 };
 
 const Contact = () => {
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  // const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   // Accordion: one answer open at a time; null means all collapsed to a teaser.
@@ -124,7 +124,7 @@ const Contact = () => {
       }, EMAILJS_PUBLIC_KEY);
 
       toast.success('Message Sent Successfully!');
-      setIsSubmitted(true);
+      // setIsSubmitted(true);
       reset();
     } catch (err: any){
       console.error(err);
